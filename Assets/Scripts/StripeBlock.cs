@@ -15,12 +15,31 @@ public class StripeBlock : Block
 
     protected override void OnMouseDown()
     {
-        throw new System.NotImplementedException();
+        gameManager.ResetCheckGrid();
+        List<Block> toBlast = new List<Block>();
+
+        toBlast = GetChain();
+
+        foreach (Block block in toBlast)
+            block.Blast();
     }
 
     public override List<Block> GetChain(BlockColor color)
     {
         List<Block> ResultList = new List<Block>();
         return ResultList;
+    }
+
+    public override List<Block> GetChain()
+    {
+        List<Block> result = new List<Block>();
+        if (toCheck)
+        {
+            this.toCheck = false;
+            result.Add(this);
+            for (int i = 0; i < 8; i++)
+                result.AddRange(gameManager.GetGridElement(i, (int)index.y).GetChain());
+        }
+        return result;
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ColorBlock : Block
 {
     BlockColor mColor;
-    
+
 
     public void Start()
     {
@@ -13,10 +13,11 @@ public class ColorBlock : Block
         InitializeColor();
     }
 
-    protected void InitializeColor() 
+    protected void InitializeColor()
     {
-        mColor = (BlockColor) rnd.Next(0,6);
-        switch (mColor) {
+        mColor = (BlockColor)rnd.Next(0, 6);
+        switch (mColor)
+        {
             case BlockColor.RED:
                 spriteRenderer.color = Color.red;
                 break;
@@ -40,16 +41,18 @@ public class ColorBlock : Block
     }
     protected override void OnMouseDown()
     {
+        gameManager.ResetCheckGrid();
         List<Block> colorChain = GetChain(mColor);
         Debug.Log(colorChain.Count);
         if (colorChain.Count > 1)
             foreach (Block iblock in colorChain)
                 iblock.Blast();
+        
         //TODO: add points
         //TODO: add time
     }
 
-    public override List<Block> GetChain(BlockColor color) 
+    public override List<Block> GetChain(BlockColor color)
     {
         List<Block> ResultList = new List<Block>();
         if (this.mColor == color && toCheck)
@@ -61,19 +64,27 @@ public class ColorBlock : Block
             ResultList.AddRange(gameManager.GetGridElement((int)index.x + 1, (int)index.y).GetChain(this.mColor));
             ResultList.AddRange(gameManager.GetGridElement((int)index.x, (int)index.y - 1).GetChain(this.mColor));
             ResultList.AddRange(gameManager.GetGridElement((int)index.x, (int)index.y + 1).GetChain(this.mColor));
-            
+
         }
-        
+
         return ResultList;
     }
 
-    
+
 
     public override void OnTap()
     {
-       
+
     }
 
-    
-
+    public override List<Block> GetChain()
+    {
+        List<Block> result = new List<Block>();
+        if (toCheck)
+        {
+            this.toCheck = false;
+            result.Add(this);
+        }
+        return result;
+    }
 }

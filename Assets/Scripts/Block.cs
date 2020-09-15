@@ -17,7 +17,13 @@ public abstract class Block : MonoBehaviour
     {
         //TODO: instantiate new block
         //TODO: reference the new block in the grid
-        Destroy(gameObject);
+        GameObject newInstance = 
+            gameManager.GetBlockFactory().InstanceBlock(gameObject.transform.position);
+        gameManager.GetGrid()[(int)index.x, (int)index.y] = newInstance.GetComponent<Block>();
+        newInstance.GetComponent<Block>().SetIndex(index);
+        newInstance.GetComponent<Block>().SetGM(gameManager);
+        if(gameObject != null)
+            Destroy(gameObject);
     }
 
     protected abstract void OnMouseDown();
@@ -30,6 +36,11 @@ public abstract class Block : MonoBehaviour
     }
 
     public abstract List<Block> GetChain(BlockColor color);
-        
- 
+    public abstract List<Block> GetChain();
+
+    public void resetCheck() {
+        toCheck = true;
+    }
+
+
 }

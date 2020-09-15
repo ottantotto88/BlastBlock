@@ -43,4 +43,18 @@ public class GameManager : MonoBehaviour
         return BlockGrid[i, j];
     }
 
+    public BlockFactory GetBlockFactory() {
+        return GetComponent<BlockFactory>();
+    }
+
+    public void ResetCheckGrid()
+    {
+        for (int i = 0; i < 8; i++)
+        {
+            for (int j = 0; j < 8; j++)
+            {
+                BlockGrid[i, j].resetCheck();
+            }
+        }
+    }
 }
