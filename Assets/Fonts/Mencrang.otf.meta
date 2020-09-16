@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: dfcbad6b9f5936542b4bd64ff78f0c0e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Mencran?
+  fontNames:
+  - Mencran?
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9eb287c473d908241a28c4003a1a98d1, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

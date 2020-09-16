@@ -1,8 +1,13 @@
 ﻿
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] GameObject scoreText = null;
+    [SerializeField] GameObject timeBar = null;
+    [SerializeField] GameObject GameOverScreen = null;
 
     private Block[,] BlockGrid = new Block[8,8];
     private static Vector2 initialPos = new Vector2(-2.1f,2.1f);
@@ -10,6 +15,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         InitializeGrid();
+        scoreText.GetComponent<Text>().text = "0";
+
+        
     }
 
     private void InitializeGrid() 
@@ -56,5 +64,21 @@ public class GameManager : MonoBehaviour
                 BlockGrid[i, j].resetCheck();
             }
         }
+    }
+
+    public void IncreaseScore(int value)
+    {
+        int newvalue = Int32.Parse(scoreText.GetComponent<Text>().text) + value;
+        scoreText.GetComponent<Text>().text = newvalue.ToString();
+    }
+
+    public void IncreaseTime(float toAdd) {
+        timeBar.GetComponent<TimeBar>().IncreaseTime(toAdd);
+    }
+
+    public void GameOver() 
+    {
+        GameOverScreen.GetComponent<GameOverUI>().setYourScoreNum(scoreText.GetComponent<Text>().text);
+        Instantiate(GameOverScreen, Vector2.zero, Quaternion.identity);
     }
 }

@@ -45,11 +45,15 @@ public class ColorBlock : Block
         List<Block> colorChain = GetChain(mColor);
         Debug.Log(colorChain.Count);
         if (colorChain.Count > 1)
+        {
+            int score = (colorChain.Count - 1) * 80 + (int)Mathf.Pow(((colorChain.Count - 2) / 5), 2);
+            gameManager.IncreaseScore(score);
+            AddTime(colorChain.Count);
             foreach (Block iblock in colorChain)
                 iblock.Blast();
+
+        }
         
-        //TODO: add points
-        //TODO: add time
     }
 
     public override List<Block> GetChain(BlockColor color)

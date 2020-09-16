@@ -42,5 +42,10 @@ public abstract class Block : MonoBehaviour
         toCheck = true;
     }
 
+    public void AddTime(int blockCount)
+    { 
+        float time = Mathf.Pow(((blockCount - 2) / 3),2) * 20;
+        gameManager.IncreaseTime(time);
+    }
 
 }

@@ -20,6 +20,9 @@ public class StripeBlock : Block
 
         toBlast = GetChain();
 
+        int score = (toBlast.Count - 1) * 80 + (int) Mathf.Pow(((toBlast.Count - 2) / 5),2);
+        gameManager.IncreaseScore(score);
+        AddTime(toBlast.Count);
         foreach (Block block in toBlast)
             block.Blast();
     }
