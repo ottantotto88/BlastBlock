@@ -91,4 +91,12 @@ public class ColorBlock : Block
         }
         return result;
     }
+
+    [System.Obsolete]
+    public override void InstantiateEffect()
+    {
+        particleShatter.GetComponent<ParticleSystem>().startColor = spriteRenderer.color;
+        particleShatter.SetActive(true);
+        particleShatter.transform.parent = gameObject.transform.parent;
+    }
 }

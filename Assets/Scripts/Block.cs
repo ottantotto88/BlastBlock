@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public abstract class Block : MonoBehaviour
 {
+    [SerializeField] protected GameObject particleShatter = null;
     public enum BlockColor { RED, BLUE, GREEN, YELLOW, VIOLET, ORANGE}
     protected GameManager gameManager;
     protected static System.Random rnd = new System.Random();
@@ -15,8 +16,8 @@ public abstract class Block : MonoBehaviour
     public abstract void OnTap();
     public void Blast() 
     {
-        //TODO: instantiate new block
-        //TODO: reference the new block in the grid
+        InstantiateEffect();
+
         GameObject newInstance = 
             gameManager.GetBlockFactory().InstanceBlock(gameObject.transform.position);
         gameManager.GetGrid()[(int)index.x, (int)index.y] = newInstance.GetComponent<Block>();
@@ -44,8 +45,9 @@ public abstract class Block : MonoBehaviour
 
     public void AddTime(int blockCount)
     { 
-        float time = Mathf.Pow(((blockCount - 2) / 3),2) * 20;
+        float time = (Mathf.Pow(((blockCount - 2) / 3),2) * 20)/10;
         gameManager.IncreaseTime(time);
     }
 
+    public abstract void InstantiateEffect();
 }

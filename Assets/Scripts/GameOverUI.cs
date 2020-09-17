@@ -26,13 +26,16 @@ public class GameOverUI : MonoBehaviour
 
     public void ReloadScene()
     {
-        Debug.Log("clicco");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void LoadGridLevel()
     {
-        Debug.Log("clicco");
         SceneManager.LoadScene("GridLevel");
+    }
+
+    public void QuitApplication()
+    {
+        Application.Quit();
     }
 }

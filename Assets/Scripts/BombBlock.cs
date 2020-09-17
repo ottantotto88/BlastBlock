@@ -49,4 +49,12 @@ public class BombBlock : Block
         return result;
     }
 
+    [System.Obsolete]
+    public override void InstantiateEffect()
+    {
+        
+        particleShatter.SetActive(true);
+        particleShatter.transform.parent = gameObject.transform.parent;
+    }
 }
+
