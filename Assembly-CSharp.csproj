@@ -63,12 +63,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\MainCamera.cs" />
     <Compile Include="Assets\Scripts\Block.cs" />
     <Compile Include="Assets\Scripts\BlockFactory.cs" />
     <Compile Include="Assets\Scripts\BombBlock.cs" />
     <Compile Include="Assets\Scripts\ColorBlock.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameOverUI.cs" />
+    <Compile Include="Assets\Scripts\PlusText.cs" />
+    <Compile Include="Assets\Scripts\ScoreText.cs" />
     <Compile Include="Assets\Scripts\StripeBlock.cs" />
     <Compile Include="Assets\Scripts\TimeBar.cs" />
     <None Include="Assets\Shaders\BLUR.shader" />

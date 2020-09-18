@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class TimeBar : MonoBehaviour
 {
     [SerializeField] GameManager gameManager = null;
-    private float timeLeft = 0;
+    [SerializeField] private float timeLeft = 0;
     private bool gameOver = false;
+    
     // Start is called before the first frame update
     void Start()
     {
-        timeLeft = 30f;
+        
     }
 
     // Update is called once per frame
