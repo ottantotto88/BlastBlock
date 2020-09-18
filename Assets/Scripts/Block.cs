@@ -48,6 +48,6 @@ public abstract class Block : MonoBehaviour
         float time = (Mathf.Pow(((blockCount - 2) / 3),2) * 20)/10;
         gameManager.IncreaseTime(time);
     }
-
+    [Obsolete]
     public abstract void InstantiateEffect();
 }

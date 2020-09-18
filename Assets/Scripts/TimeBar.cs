@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class TimeBar : MonoBehaviour
 {
-    [SerializeField] GameManager gameManager = null;
+    [SerializeField] private GameManager gameManager = null;
+    [SerializeField] private GameObject plusText = null;
     [SerializeField] private float timeLeft = 0;
+    
     private bool gameOver = false;
     
     // Start is called before the first frame update
@@ -32,7 +34,8 @@ public class TimeBar : MonoBehaviour
 
     public void IncreaseTime(float toAdd) 
     {
-        Debug.Log(toAdd);
+        plusText.GetComponent<Text>().text = "+" + (int)toAdd + "''";
+        plusText.SetActive(true);
         timeLeft += toAdd;
     }
 }

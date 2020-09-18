@@ -1039,6 +1039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   YourScoreNum: {fileID: 0}
+  BestScoreNum: {fileID: 9044808708186350197}
 --- !u!1 &7218085159229206253
 GameObject:
   m_ObjectHideFlags: 0

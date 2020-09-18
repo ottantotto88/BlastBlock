@@ -647,6 +647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   YourScoreNum: {fileID: 189892921996072442}
+  BestScoreNum: {fileID: 8423393060253942506}
 --- !u!1 &4941620707569189177
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,7 +786,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 191ed0cea80a57c4a8af7757123e9219, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -872,7 +873,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Best Score:'
+  m_Text: 'Previous Best Score:'
 --- !u!1 &8062951355975351217
 GameObject:
   m_ObjectHideFlags: 0

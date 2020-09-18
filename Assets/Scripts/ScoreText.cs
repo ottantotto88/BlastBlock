@@ -5,7 +5,7 @@ using System;
 
 public class ScoreText : MonoBehaviour
 {
-    [SerializeField] GameObject plusText;
+    [SerializeField] GameObject plusText = null;
     // Start is called before the first frame update
     void Start()
     {
