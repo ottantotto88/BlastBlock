@@ -33,12 +33,13 @@ public abstract class Block : MonoBehaviour
         List<Block> toBlast = new List<Block>();
 
         toBlast = GetChainTM();
-
-        int score = (toBlast.Count - 1) * 80 + (int)Mathf.Pow(((toBlast.Count - 2) / 5), 2);
-        gameManager.IncreaseScore(score);
-        AddTime(toBlast.Count);
-        foreach (Block block in toBlast)
-            block.Blast();
+	if (toBlast.Count > 1){
+        	int score = (toBlast.Count - 1) * 80 + (int)Mathf.Pow(((toBlast.Count - 2) / 5), 2);
+        	gameManager.IncreaseScore(score);
+        	AddTime(toBlast.Count);
+        	foreach (Block block in toBlast)
+            		block.Blast();
+	}	
     }
 
     public  void SetGM(GameManager gameManager) {

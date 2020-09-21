@@ -65,7 +65,7 @@ public class ColorBlock : Block
 
     public override List<Block> GetChainTM()
     {
-         return GetChain(mColor);
+	return GetChain(mColor);
     }
 
     public override List<Block> GetChain()
