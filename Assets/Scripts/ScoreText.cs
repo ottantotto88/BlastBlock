@@ -21,8 +21,11 @@ public class ScoreText : MonoBehaviour
     public void IncreaseScore(int value) 
     {
         plusText.GetComponent<Text>().text = "+" + value.ToString();
-        plusText.SetActive(true);
-        
+
+        GameObject ptInstance = Instantiate(plusText);
+        ptInstance.GetComponent<RectTransform>().SetParent(transform);
+        ptInstance.GetComponent<RectTransform>().SetPositionAndRotation(new Vector3(0, 0, 0), Quaternion.identity);
+
         int newvalue = Int32.Parse(GetComponent<Text>().text) + value;
         GetComponent<Text>().text = newvalue.ToString();
     }

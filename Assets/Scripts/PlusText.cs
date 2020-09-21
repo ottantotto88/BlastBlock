@@ -6,6 +6,11 @@ public class PlusText : MonoBehaviour
 {
     public void OnAnimationFinished() 
     {
+        Destroy(gameObject);
+    }
+
+    public void OnClickAnimationFinished()
+    {
         gameObject.SetActive(false);
     }
 }

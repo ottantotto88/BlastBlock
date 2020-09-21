@@ -35,7 +35,13 @@ public class TimeBar : MonoBehaviour
     public void IncreaseTime(float toAdd) 
     {
         plusText.GetComponent<Text>().text = "+" + (int)toAdd + "''";
-        plusText.SetActive(true);
+
+        if ((int)toAdd > 0)
+        {
+            GameObject ptInstance = Instantiate(plusText, new Vector3(0, 0, -93), Quaternion.identity);
+            ptInstance.GetComponent<RectTransform>().SetParent(transform);
+            ptInstance.GetComponent<RectTransform>().SetPositionAndRotation(new Vector3(0, 0, 0), Quaternion.identity);
+        }
         timeLeft += toAdd;
     }
 }

@@ -13,7 +13,6 @@ public abstract class Block : MonoBehaviour
     protected static Color _orange = new Color(1.0f, 0.64f, 0.0f);
     protected Vector2 index;
     protected bool toCheck = true;
-    public abstract void OnTap();
     public void Blast() 
     {
         InstantiateEffect();
@@ -27,7 +26,21 @@ public abstract class Block : MonoBehaviour
             Destroy(gameObject);
     }
 
-    protected abstract void OnMouseDown();
+    //template method for click behaviour
+    protected void OnMouseDown()
+    {
+        gameManager.ResetCheckGrid();
+        List<Block> toBlast = new List<Block>();
+
+        toBlast = GetChainTM();
+
+        int score = (toBlast.Count - 1) * 80 + (int)Mathf.Pow(((toBlast.Count - 2) / 5), 2);
+        gameManager.IncreaseScore(score);
+        AddTime(toBlast.Count);
+        foreach (Block block in toBlast)
+            block.Blast();
+    }
+
     public  void SetGM(GameManager gameManager) {
         this.gameManager = gameManager;
     }
@@ -50,4 +63,5 @@ public abstract class Block : MonoBehaviour
     }
     [Obsolete]
     public abstract void InstantiateEffect();
+    public abstract List<Block> GetChainTM();
 }

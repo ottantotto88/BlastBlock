@@ -8,24 +8,8 @@ public class StripeBlock : Block
 
     
 
-    public override void OnTap()
-    {
-        throw new System.NotImplementedException();
-    }
+    
 
-    protected override void OnMouseDown()
-    {
-        gameManager.ResetCheckGrid();
-        List<Block> toBlast = new List<Block>();
-
-        toBlast = GetChain();
-
-        int score = (toBlast.Count - 1) * 80 + (int) Mathf.Pow(((toBlast.Count - 2) / 5),2);
-        gameManager.IncreaseScore(score);
-        AddTime(toBlast.Count);
-        foreach (Block block in toBlast)
-            block.Blast();
-    }
 
     public override List<Block> GetChain(BlockColor color)
     {
@@ -51,5 +35,10 @@ public class StripeBlock : Block
     {
         particleShatter.SetActive(true);
         particleShatter.transform.parent = gameObject.transform.parent;
+    }
+
+    public override List<Block> GetChainTM()
+    {
+        return GetChain();
     }
 }
